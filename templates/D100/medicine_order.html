@@ -1,0 +1,44 @@
+<!-- templates/P100/medication_order.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>薬投与指示</title>
+</head>
+<body>
+    <h1>薬投与指示</h1>
+    <p>患者: {{ patient.patfname }} {{ patient.patlname }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="medicine_id">薬剤名:</label>
+        <select id="medicine_id" name="medicine_id">
+            {% for medicine in medicines %}
+                <option value="{{ medicine.medicineid }}">{{ medicine.medicinename }}</option>
+            {% endfor %}
+        </select>
+        <label for="dosage">数量:</label>
+        <input type="text" id="dosage" name="dosage">
+        <button type="submit" name="add_to_cart">追加</button>
+    </form>
+    <h2>選択された薬剤</h2>
+    <ul>
+        {% for item in cart %}
+            <li>
+                薬剤ID: {{ item.medicine_id }}, 数量: {{ item.dosage }}
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'medication_confirm_view' patient.patid %}">
+        {% csrf_token %}
+        <button type="submit" name="confirm">確認</button>
+    </form>
+    {% if messages %}
+        <div style="color: red;">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>

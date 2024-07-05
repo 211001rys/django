@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>病院検索</title>
+</head>
+<body>
+    <h1>資本金で病院を検索</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="capital">資本金:</label>
+        <input type="text" name="capital" id="capital" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if errors %}
+        <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if hospitals %}
+        <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.tabyouinmei }}: {{ hospital.tabyouinshihonkin }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>病院は見つかりませんでした</p>
+    {% endif %}
+</body>
+</html>

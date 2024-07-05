@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>受付ホーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>受付ホーム</h1>
+<header>
+    <nav>
+        <ul>
+
+            <li><a href="{% url 'password_change' %}">従業員パスワード変更</a></li>
+            <li><a href="{% url 'patient_register' %}">患者登録</a></li>
+            <li><a href="{% url 'patient_insurance_edit' %}">患者情報変更</a></li>
+            <li><a href="{% url 'patient_search' %}">患者名検索</a></li>
+
+        </ul>
+    </nav>
+</header>
+<footer>
+    <a href="{% url 'login' %}" id="logout">ログアウト</a>
+</footer>
+</body>
+</html>

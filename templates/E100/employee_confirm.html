@@ -1,0 +1,22 @@
+<!-- templates/employee_confirm.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>従業員登録確認</title>
+</head>
+<body>
+    <h2>従業員登録確認</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>User ID: {{ form_data.empid }}</p>
+        <p>First Name: {{ form_data.empfname }}</p>
+        <p>Last Name: {{ form_data.emplname }}</p>
+        <p>Role: {{ form_data.emprole }}</p>
+        
+        {% csrf_token %}
+        <button type="submit" name="action" value="confirm">register</button>
+
+        <a href="{% url 'employee_register' %}">Edit</a>
+    </form>
+</body>
+</html>

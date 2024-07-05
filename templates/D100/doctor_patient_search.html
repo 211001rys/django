@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>患者検索</title>
+</head>
+<body>
+    <h2>患者検索</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="search_fname">姓:</label>
+        <input type="text" id="search_fname" name="search_fname"><br><br>
+        <label for="search_lname">名:</label>
+        <input type="text" id="search_lname" name="search_lname"><br><br>
+        <button type="submit">検索</button>
+    </form>
+    <br>
+    {% if patients %}
+        <h3>検索結果:</h3>
+        <ul>
+            {% for patient in patients %}
+                <li>
+                    {{ patient.patfname }} {{ patient.patlname }}
+                    <a href="{% url 'medication_order_view' patient.patid %}">投薬指示</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if messages %}
+        <div style="color: red;">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>他住所→病院検索</title>
+</head>
+<body>
+<h1>他住所→病院検索</h1>
+<form id="searchForm">
+    <label for="address">住所の一部:</label>
+    <input type="text" id="address" name="address" required>
+    <button type="submit">検索</button>
+</form>
+
+<div id="searchResults">
+    <!-- 検索結果はここに表示される -->
+</div>
+
+<script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var addressInput = document.getElementById("address").value;
+        var searchResultsDiv = document.getElementById("searchResults");
+
+        // Ajaxリクエストを送信してデータベースから病院を検索
+        // ここでサーバーとの通信を行い、検索結果を取得して表示する
+
+        // 仮の検索結果の表示
+        searchResultsDiv.innerHTML = "<p>検索中...</p>";
+
+        // 本来はここにAjaxなどの通信処理を記述する
+        // 以下は仮の検索結果
+        setTimeout(function() {
+            var searchResults = [
+                { name: "病院A", address: "住所A", phoneNumber: "000-0000-0000" },
+                { name: "病院B", address: "住所B", phoneNumber: "111-1111-1111" }
+                // 他の病院情報も同様に表示
+            ];
+
+            if (searchResults.length > 0) {
+                var resultHTML = "<h2>検索結果</h2><ul>";
+                searchResults.forEach(function(hospital) {
+                    resultHTML += "<li><strong>" + hospital.name + "</strong>: 住所 - " + hospital.address + ", 電話番号 - " + hospital.phoneNumber + "</li>";
+                });
+                resultHTML += "</ul>";
+                searchResultsDiv.innerHTML = resultHTML;
+            } else {
+                searchResultsDiv.innerHTML = "<p>該当する病院は見つかりませんでした。</p>";
+            }
+        }, 1000); // 1秒後に仮の検索結果を表示
+    });
+</script>
+</body>
+</html>

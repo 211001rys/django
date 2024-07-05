@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>処置履歴</title>
+</head>
+<body>
+    <h1>処置履歴</h1>
+    <p>患者ID: {{ patient.patid }}</p>
+    <p>患者名: {{ patient.patlname }} {{ patient.patfname }}</p>
+    <h2>処置履歴:</h2>
+    <ul>
+        {% for treatment in treatments %}
+            <li>
+                処置ID: {{ treatment.treatmentid }}<br>
+                薬: {{ treatment.medicine.medname }}<br>
+                量: {{ treatment.quantity }}<br>
+                処置内容: {{ treatment.treatmentdata }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'doctor_home' %}">メニューに戻る</a>
+</body>
+</html>

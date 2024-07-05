@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>他住所→仕入れ先検索</title>
+</head>
+<body>
+<h1>他住所→仕入れ先検索</h1>
+<form id="searchForm">
+    <label for="address">住所の一部:</label>
+    <input type="text" id="address" name="address" required>
+    <button type="submit">検索</button>
+</form>
+
+<div id="searchResults">
+    <!-- 検索結果はここに表示される -->
+</div>
+
+<script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var addressInput = document.getElementById("address").value;
+        var searchResultsDiv = document.getElementById("searchResults");
+
+        // Ajaxリクエストを送信してDBから仕入れ先を検索
+        // ここでサーバーとの通信を行い、検索結果を取得して表示する
+
+        // 仮の検索結果の表示
+        searchResultsDiv.innerHTML = "<p>検索中...</p>";
+
+        // 以下は仮の検索結果
+        setTimeout(function() {
+            var searchResults = [
+                { id: "S001", name: "仕入れ先A", address: "住所A", phoneNumber: "000-0000-0000", capital: 100, deliveryDate: "2024-05-10" },
+                { id: "S002", name: "仕入れ先B", address: "住所B", phoneNumber: "111-1111-1111", capital: 200, deliveryDate: "2024-05-12" }
+                // 他の仕入れ先情報も同様に表示
+            ];
+
+            if (searchResults.length > 0) {
+                var resultHTML = "<h2>検索結果</h2><table><thead><tr><th>仕入れ先ID</th><th>仕入れ先名</th><th>仕入れ先住所</th><th>仕入れ先電話番号</th><th>資本金</th><th>納期</th></tr></thead><tbody>";
+                searchResults.forEach(function(supplier) {
+                    resultHTML += "<tr><td>" + supplier.id + "</td><td>" + supplier.name + "</td><td>" + supplier.address + "</td><td>" + supplier.phoneNumber + "</td><td>" + supplier.capital + "</td><td>" + supplier.deliveryDate + "</td></tr>";
+                });
+                resultHTML += "</tbody></table>";
+                searchResultsDiv.innerHTML = resultHTML;
+            } else {
+                searchResultsDiv.innerHTML = "<p>該当する仕入れ先は見つかりませんでした。</p>";
+            }
+        }, 1000); // 1秒後に仮の検索結果を表示
+    });
+</script>
+</body>
+</html>

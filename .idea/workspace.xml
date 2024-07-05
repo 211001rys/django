@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b44bba97-8323-4737-97e3-4ee00b432a38" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a430f3ca-8637-4480-be44-3996d0aaa659.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a430f3ca-8637-4480-be44-3996d0aaa659.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2gUVh9zC2iKDBjmd3ccctoo5bkv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.djangoProject1.executor&quot;: &quot;Run&quot;,
+    &quot;Django サーバー.djangoProject1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/211001/PycharmProjects/djangoProject1/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\211001\PycharmProjects\djangoProject1\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\211001\PycharmProjects\djangoProject1\templates" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Grunt" flag="true" />
+      <visibility group="Gulp" flag="true" />
+      <visibility group="HTTP リクエスト" flag="true" />
+      <visibility group="Node.js" flag="true" />
+      <visibility group="Python ファイルの実行" flag="true" />
+      <visibility group="conda コマンドの実行" flag="true" />
+      <visibility group="npm" flag="true" />
+      <visibility group="pip コマンドを実行" flag="true" />
+      <visibility group="yarn" flag="true" />
+      <visibility group="実行構成" flag="true" />
+      <visibility group="最近のプロジェクト" flag="true" />
+    </myKeys>
+  </component>
+  <component name="RunManager">
+    <configuration name="djangoProject1" type="Python.DjangoServer" factoryName="Django server">
+      <module name="djangoProject1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="djangoProject1.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b44bba97-8323-4737-97e3-4ee00b432a38" name="Changes" comment="" />
+      <created>1715752259584</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715752259584</updated>
+      <workItem from="1715752260983" duration="544000" />
+      <workItem from="1715820742657" duration="1189000" />
+      <workItem from="1716427778778" duration="12000" />
+      <workItem from="1716771635011" duration="2999000" />
+      <workItem from="1716861678253" duration="5052000" />
+      <workItem from="1716956956619" duration="5408000" />
+      <workItem from="1717028500321" duration="10284000" />
+      <workItem from="1717114697839" duration="5145000" />
+      <workItem from="1717120947858" duration="3378000" />
+      <workItem from="1717373863764" duration="10516000" />
+      <workItem from="1717561897811" duration="5063000" />
+      <workItem from="1717633012175" duration="11577000" />
+      <workItem from="1717719292443" duration="4061000" />
+      <workItem from="1717723379210" duration="1069000" />
+      <workItem from="1717724467684" duration="5967000" />
+      <workItem from="1717981220927" duration="10828000" />
+      <workItem from="1718071094150" duration="5402000" />
+      <workItem from="1718166763696" duration="5255000" />
+      <workItem from="1718237864020" duration="4683000" />
+      <workItem from="1718243084640" duration="5694000" />
+      <workItem from="1718324377174" duration="5405000" />
+      <workItem from="1718586003793" duration="2609000" />
+      <workItem from="1718844849479" duration="610000" />
+      <workItem from="1718852134564" duration="110000" />
+      <workItem from="1719188432285" duration="15891000" />
+      <workItem from="1719280715506" duration="5522000" />
+      <workItem from="1719376312104" duration="7449000" />
+      <workItem from="1719535405763" duration="4458000" />
+      <workItem from="1719885647665" duration="1995000" />
+      <workItem from="1719887671059" duration="3626000" />
+      <workItem from="1719981510339" duration="14306000" />
+      <workItem from="1720138672697" duration="308000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1719207792551</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719207792551</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720061746206</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720061746206</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720061858304</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720061858304</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720062049135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720062049135</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720062522414</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720062522414</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720063089785</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720063089785</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+  </component>
+</project>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>患者名検索</title>
+</head>
+<body>
+    <h1>患者名検索</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="search_name">患者名:</label>
+        <input type="text" id="search_name" name="search_name" required>
+        <button type="submit">検索</button>
+    </form>
+
+    {% if patients %}
+        <h2>検索結果:</h2>
+        <ul>
+            {% for patient in patients %}
+                <li>{{ patient.patfname }} {{ patient.patlname }}</li>
+            {% endfor %}
+        </ul>
+    {% elif messages %}
+        <ul>
+        
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{% url 'home2' %}">ホームに戻る</a>
+</body>
+</html>

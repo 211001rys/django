@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Screen Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>管理者ホーム</h1>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'employee_register' %}">従業員登録</a></li>
+            <li><a href="{% url 'employee_search_view' %}">従業員氏名変更</a></li>
+            <li><a href="{% url 'supplier_list' %}">仕入先一覧</a></li>
+            <li><a href="{% url 'hospital_search' %}">資本金検索</a></li>
+            <li><a href="{% url 'hospital_list' %}">仕入れ先情報変更</a></li>
+            
+        </ul>
+    </nav>
+</header>
+<footer>
+    <a href="{% url 'login' %}">ログアウト</a>
+</footer>
+</body>
+</html>

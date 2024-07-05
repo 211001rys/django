@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>仕入れ先情報変更</title>
+</head>
+<body>
+<h1>仕入れ先情報変更</h1>
+<form id="changeForm">
+    <label for="phoneNumber">変更する仕入れ先の電話番号:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}" required>
+    <button type="submit">変更確認</button>
+</form>
+
+<div id="confirmation" style="display: none;">
+    <h2>変更内容確認</h2>
+    <p>新しい電話番号: <span id="newPhoneNumber"></span></p>
+    <button id="confirmChange">変更</button>
+</div>
+
+<div id="error" style="display: none;">
+    <h2>エラー</h2>
+    <p id="errorMessage"></p>
+</div>
+
+<script>
+    document.getElementById("changeForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var phoneNumberInput = document.getElementById("phoneNumber").value;
+        var confirmationDiv = document.getElementById("confirmation");
+        var newPhoneNumberSpan = document.getElementById("newPhoneNumber");
+
+        // ここでサーバーに電話番号の変更確認をリクエストし、変更内容を取得する
+        // 以下は仮の変更内容
+        var newPhoneNumber = "新しい電話番号: " + phoneNumberInput;
+
+        newPhoneNumberSpan.textContent = newPhoneNumber;
+        confirmationDiv.style.display = "block";
+    });
+
+    document.getElementById("confirmChange").addEventListener("click", function() {
+        // ここでサーバーに変更を送信し、エラーチェックを行う
+        // 以下は仮のエラーチェック
+        var hasError = Math.random() < 0.5; // 50%の確率でエラーを発生させる
+
+        if (!hasError) {
+            alert("変更が完了しました。");
+            // 変更が成功した場合、ここにリダイレクトなどの処理を追加する
+        } else {
+            var errorDiv = document.getElementById("error");
+            var errorMessageParagraph = document.getElementById("errorMessage");
+            errorMessageParagraph.textContent = "エラーが発生しました。変更できませんでした。";
+            errorDiv.style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>

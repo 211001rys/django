@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>処置履歴確認</title>
+</head>
+<body>
+    <h1>処置履歴確認</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="pat_id">患者ID:</label>
+        <input type="text" id="pat_id" name="pat_id">
+        <button type="submit">検索</button>
+    </form>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

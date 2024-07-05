@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>仕入れ先登録</title>
+</head>
+<body>
+<h1>仕入れ先登録</h1>
+<form id="registrationForm">
+    <label for="supplierID">仕入れ先ID:</label>
+    <input type="text" id="supplierID" name="supplierID" required><br>
+
+    <label for="supplierName">仕入れ先名:</label>
+    <input type="text" id="supplierName" name="supplierName" required><br>
+
+    <label for="supplierAddress">仕入れ先住所:</label>
+    <input type="text" id="supplierAddress" name="supplierAddress" required><br>
+
+    <label for="supplierPhoneNumber">仕入れ先電話番号:</label>
+    <input type="tel" id="supplierPhoneNumber" name="supplierPhoneNumber" pattern="[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}" required><br>
+
+    <label for="capital">資本金(万円):</label>
+    <input type="number" id="capital" name="capital" min="0" step="any" required><br>
+
+    <label for="deliveryDate">納期:</label>
+    <input type="date" id="deliveryDate" name="deliveryDate" required><br>
+
+    <button type="submit">登録確認</button>
+</form>
+
+<div id="confirmation" style="display: none;">
+    <h2>登録内容確認</h2>
+    <p>仕入れ先ID: <span id="confirmSupplierID"></span></p>
+    <p>仕入れ先名: <span id="confirmSupplierName"></span></p>
+    <p>仕入れ先住所: <span id="confirmSupplierAddress"></span></p>
+    <p>仕入れ先電話番号: <span id="confirmSupplierPhoneNumber"></span></p>
+    <p>資本金: <span id="confirmCapital"></span> 万円</p>
+    <p>納期: <span id="confirmDeliveryDate"></span></p>
+    <button id="confirmRegistration">登録</button>
+</div>
+
+<div id="error" style="display: none;">
+    <h2>エラー</h2>
+    <p id="errorMessage"></p>
+</div>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+        var supplierID = document.getElementById("supplierID").value;
+        var supplierName = document.getElementById("supplierName").value;
+        var supplierAddress = document.getElementById("supplierAddress").value;
+        var supplierPhoneNumber = document.getElementById("supplierPhoneNumber").value;
+        var capital = document.getElementById("capital").value;
+        var deliveryDate = document.getElementById("deliveryDate").value;
+
+        var confirmationDiv = document.getElementById("confirmation");
+        var confirmSupplierID = document.getElementById("confirmSupplierID");
+        var confirmSupplierName = document.getElementById("confirmSupplierName");
+        var confirmSupplierAddress = document.getElementById("confirmSupplierAddress");
+        var confirmSupplierPhoneNumber = document.getElementById("confirmSupplierPhoneNumber");
+        var confirmCapital = document.getElementById("confirmCapital");
+        var confirmDeliveryDate = document.getElementById("confirmDeliveryDate");
+
+        confirmSupplierID.textContent = supplierID;
+        confirmSupplierName.textContent = supplierName;
+        confirmSupplierAddress.textContent = supplierAddress;
+        confirmSupplierPhoneNumber.textContent = supplierPhoneNumber;
+        confirmCapital.textContent = capital;
+        confirmDeliveryDate.textContent = deliveryDate;
+
+        confirmationDiv.style.display = "block";
+    });
+
+    document.getElementById("confirmRegistration").addEventListener("click", function() {
+        // ここでサーバーに登録を送信し、エラーチェックを行う
+        // 以下は仮のエラーチェック
+        var hasError = Math.random() < 0.5; // 50%の確率でエラーを発生させる
+
+        if (!hasError) {
+            alert("登録が完了しました。");
+            // 登録が成功した場合、ここにリダイレクトなどの処理を追加する
+        } else {
+            var errorDiv = document.getElementById("error");
+            var errorMessageParagraph = document.getElementById("errorMessage");
+            errorMessageParagraph.textContent = "エラーが発生しました。登録できませんでした。";
+            errorDiv.style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>

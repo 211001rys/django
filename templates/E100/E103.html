@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Doctor Home</title>
+</head>
+<body>
+<h1>医師ホーム</h1>
+<header>
+    <nav>
+        <ul>
+
+            <li><a href="{% url 'password_change' %}">パスワード変更</a></li>
+            <li><a href="{% url 'patient_search_view2' %}">患者名検索</a></li>
+            <li><a href="{% url 'search_patient_by_id' %}">患者ID検索</a></li>
+            <li><a href="{% url 'search_patient_by_id2' %}">処置履歴確認</a></li>
+        </ul>
+    </nav>
+</header>
+<footer>
+    <a href="{% url 'login' %}" id="logout">ログアウト</a>
+</footer>
+</body>
+</html>

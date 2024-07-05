@@ -1,0 +1,55 @@
+<!-- hospital_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>病院リスト</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>病院リスト</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>病院名</th>
+                <th>住所</th>
+                <th>電話番号</th>
+                <th>資本金</th>
+                <th>救急フラグ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hospital in hospitals %}
+            <tr>
+                <td>{{ hospital.tabyouinid }}</td>
+                <td>{{ hospital.tabyouinmei }}</td>
+                <td>{{ hospital.tabyouinaddress }}</td>
+                <td>{{ hospital.tabyouintel }}
+                <form action="{% url 'edit_hospital' hospital.tabyouinid %}" method="post">
+    {% csrf_token %}
+    <input type="text" id="phone_number_{{ hospital.tabyouinid }}" name="phone_number">
+    <button type="submit" name="action" value="confirm">変更</button>
+</form>
+
+                </td>
+                <td>{{ hospital.tabyouinshihonkin }}</td>
+                <td>{{ hospital.kyukyu }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

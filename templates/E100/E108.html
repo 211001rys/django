@@ -1,0 +1,28 @@
+<!-- E100/E108.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>従業員情報更新</title>
+</head>
+<body>
+    <h1>従業員情報更新</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="empfname">姓:</label>
+        <input type="text" id="empfname" name="empfname" value="{{ employee.empfname }}">
+        <br>
+        <label for="emplname">名:</label>
+        <input type="text" id="emplname" name="emplname" value="{{ employee.emplname }}">
+        <br>
+        <button type="submit">更新</button>
+    </form>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

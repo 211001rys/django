@@ -1,0 +1,33 @@
+<!-- confirm_hospital.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>変更確認</title>
+</head>
+<body>
+    <h1>変更確認</h1>
+    <p>電話番号: {{ new_phone }}</p>
+ {% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <label for="phone_number">電話番号:</label>
+    <input type="text" id="phone_number" name="phone_number" value="{{ new_phone|default:tabyouin.tabyouintel }}">
+    <button type="submit" name="action" value="confirm">確認</button>
+    <button type="submit" name="action" value="update">更新</button>
+</form>
+
+<a href="{% url 'hospital_list' %}">病院一覧に戻る</a>
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
