@@ -315,6 +315,8 @@ def patient_register_success(request):
 
 #従業員パスワード変更
 def password_change_view(request):
+    employee_role = request.session.get('employee_role')
+    employee_id = request.session.get('employee_id')
 
     if request.method == 'POST':
         password1 = request.POST.get('password1')
@@ -325,9 +327,16 @@ def password_change_view(request):
         elif password1 != password2:
             messages.error(request, "パスワードが一致しません。")
         else:
-            Employee.emppasswd = make_password(password1)
+            employee = get_object_or_404(Employee, pk=employee_id)
+            if employee_role == 1:
+
+                employee.emppasswd = password1
+                employee.emppasswd = make_password(password1)
+                employee.save()
+
             messages.success(request, "パスワードが変更されました。")
             return redirect('password_change_success')
+
 
     return render(request, 'E100/password_change.html', {'employee': Employee})
 
