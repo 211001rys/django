@@ -9,8 +9,8 @@
     <form method="post">
         {% csrf_token %}
         <p>User ID: {{ form_data.empid }}</p>
-        <p>First Name: {{ form_data.empfname }}</p>
-        <p>Last Name: {{ form_data.emplname }}</p>
+        <p>姓: {{ form_data.empfname }}</p>
+        <p>名: {{ form_data.emplname }}</p>
         <p>Role: {{ form_data.emprole }}</p>
         
         {% csrf_token %}

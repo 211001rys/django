@@ -4,7 +4,7 @@ import uuid
 
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.dateparse import parse_date
 
@@ -13,27 +13,39 @@ from .models import Tabyouin
 from .models import Patient
 
 
-
 def login_view(request):
     if request.method == 'POST':
-        empname = request.POST['empname']
+        empid = request.POST['empid']
         emppasswd = request.POST['emppasswd']
         try:
-            employee = Employee.objects.get(empfname=empname)
+            employee = Employee.objects.get(empid=empid)
             if employee.emprole == 1:
+
                 if emppasswd == employee.emppasswd:
                     request.session['employee_id'] = employee.empid
                     request.session['employee_role'] = employee.emprole
-                return render(request, 'E100/E100.html')
+                    return render(request, 'E100/E100.html')
+
+            if employee.emprole == 2:
+                if check_password(emppasswd, employee.emppasswd):
+                    request.session['employee_id'] = employee.empid
+                    request.session['employee_role'] = employee.emprole
+                    return render(request, 'E100/E103.html')
+
+            if employee.emprole == 3:
+                 if check_password(emppasswd, employee.emppasswd):
+                    request.session['employee_id'] = employee.empid
+                    request.session['employee_role'] = employee.emprole
+                    return render(request, 'E100/E104.html')
 
             if emppasswd == employee.emppasswd:
                 request.session['employee_id'] = employee.empid
                 if employee.emprole == 1:
                     return render(request, 'E100/E100.html')
                 elif employee.emprole == 2:
-                    return render(request, 'E100/E104.html')
-                elif employee.emprole == 3:
                     return render(request, 'E100/E103.html')
+                elif employee.emprole == 3:
+                    return render(request, 'E100/E104.html')
                 else:
                     return render(request, 'E100/E100.html')
 
@@ -206,6 +218,11 @@ def search_hospitals_by_capital(request):
             errors = ['資本金は有効な数値である必要があります。']
             return render(request, 'H100/H104.html', {'errors': errors})
 
+        if capital < 0:
+            errors = ['資本金は0以上でなければなりません。']
+            return render(request, 'H100/H104.html', {'errors': errors})
+
+
         # DBから資本金が入力された値以上の病院を検索
         hospitals = Tabyouin.objects.filter(tabyouinshihonkin__gte=capital)
 
@@ -224,7 +241,7 @@ def edit_hospital(request, tabyouinid):
 
         # 電話番号のフォーマットを確認
         phone_pattern = re.compile(r'^\(?\d{2,4}\)?-?\d{2,4}-?\d{3,4}$')
-        if not phone_pattern.match(new_phone):
+        if not phone_pattern.match(new_phone) or len(new_phone) > 14:
             messages.error(request, '有効な電話番号を入力してください。')
             return render(request, 'H100/confirm_hospital.html', {'tabyouin': hospital})
 
@@ -244,6 +261,7 @@ def edit_hospital(request, tabyouinid):
 def hospital_list(request):
     hospitals = Tabyouin.objects.all()
     return render(request, 'H100/hospital_list.html', {'hospitals': hospitals})
+
 
 
 
@@ -281,6 +299,10 @@ def patient_register(request):
                     raise ValueError
             except ValueError:
                 errors.append('有効な有効期限を入力してください。')
+
+        # 保険証記号番号の長さをチェックし、10桁でなければエラーを返す
+        if hokenmei and (not hokenmei.isdigit() or len(hokenmei) != 10):
+            errors.append('保険証記号番号は10桁の数字で入力してください。')
 
         if errors:
             return render(request, 'P100/P101.html', {'errors': errors})
@@ -328,17 +350,12 @@ def password_change_view(request):
             messages.error(request, "パスワードが一致しません。")
         else:
             employee = get_object_or_404(Employee, pk=employee_id)
-            if employee_role == 1:
-
-                employee.emppasswd = password1
-                employee.emppasswd = make_password(password1)
-                employee.save()
-
+            employee.emppasswd = make_password(password1)
+            employee.save()
             messages.success(request, "パスワードが変更されました。")
             return redirect('password_change_success')
 
-
-    return render(request, 'E100/password_change.html', {'employee': Employee})
+    return render(request, 'E100/password_change.html')
 
 def password_change_success_view(request):
     return render(request, 'E100/password_change_success.html')
@@ -381,22 +398,25 @@ def patient_insurance_edit(request):
             new_hokenmei = request.POST.get('hokenmei', patient.hokenmei)
             new_hokenexp = request.POST.get('hokenexp', patient.hokenexp)
 
-            # 入力チェック
+            # 保険証記号番号の長さをチェックし、10桁でなければエラーを返す
+            if new_hokenmei and (not new_hokenmei.isdigit() or len(new_hokenmei) != 10):
+                messages.error(request, '保険証記号番号は10桁の数字で入力してください。')
+                return render(request, 'P100/P102.html', {'patient': patient})
+
+            # その他の入力チェック
             errors = []
             if new_hokenmei and not new_hokenexp:
                 errors.append('保険証記号番号が変わるときは有効期限も変わっていなければなりません。')
             elif new_hokenexp:
                 try:
-                    if new_hokenexp:
-                        new_hokenexp_date = parse_date(new_hokenexp)
-                        if not new_hokenexp_date:
-                            raise ValueError
+                    new_hokenexp_date = parse_date(new_hokenexp)
+                    if not new_hokenexp_date:
+                        raise ValueError
 
-                    # 現在の期限より古い日付や同一日付の場合のチェック
-                        if new_hokenexp_date < patient.hokenexp:
-                            errors.append('有効期限は現在の期限より後の日付である必要があります。')
-                        elif new_hokenexp_date == patient.hokenexp:
-                            errors.append('有効期限を現在の期限と同一日付には変更できません。')
+                    if new_hokenexp_date < patient.hokenexp:
+                        errors.append('有効期限は現在の期限より後の日付である必要があります。')
+                    elif new_hokenexp_date == patient.hokenexp:
+                        errors.append('有効期限を現在の期限と同一日付には変更できません。')
 
                 except ValueError:
                     errors.append('有効な有効期限を入力してください。')
@@ -421,15 +441,15 @@ def patient_insurance_edit(request):
                 # 保険証情報を更新
                 patient.patfname = new_patfname
                 patient.patlname = new_patlname
-                if new_hokenmei:
-                    patient.hokenmei = new_hokenmei
-                if new_hokenexp:
-                    patient.hokenexp = new_hokenexp
+                patient.hokenmei = new_hokenmei
+                patient.hokenexp = new_hokenexp
                 patient.save()
                 messages.success(request, '変更完了')
                 return redirect('patient_insurance_edit')
 
     return render(request, 'P100/P102.html')
+
+
 
 def patient_list(request):
     patients = Patient.objects.all()

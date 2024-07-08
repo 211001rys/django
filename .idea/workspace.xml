@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b44bba97-8323-4737-97e3-4ee00b432a38" name="Changes" comment="Changes" />
+    <list default="true" id="b44bba97-8323-4737-97e3-4ee00b432a38" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a430f3ca-8637-4480-be44-3996d0aaa659.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a430f3ca-8637-4480-be44-3996d0aaa659.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangoProject1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kadai/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/kadai/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kadai/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/kadai/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/E100/E101.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/E100/E101.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/E100/employee_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/E100/employee_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/L101.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/L101.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,13 +109,14 @@
         <env name="DJANGO_SETTINGS_MODULE" value="djangoProject1.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (djangoProject1)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="localhost" />
+      <option name="port" value="80" />
+      <option name="host" value="0.0.0.0" />
       <option name="additionalOptions" value="" />
       <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
@@ -167,6 +177,7 @@
       <workItem from="1720139004088" duration="2382000" />
       <workItem from="1720141727183" duration="843000" />
       <workItem from="1720142591860" duration="9445000" />
+      <workItem from="1720398212357" duration="8566000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -248,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720158483683</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1720398435640</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720398435640</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

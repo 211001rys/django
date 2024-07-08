@@ -21,7 +21,7 @@ class Tabyouin(models.Model):
     tabyouinid = models.CharField('他病院ID', max_length=8, primary_key=True)
     tabyouinmei = models.CharField('他病院名', max_length=64)
     tabyouinaddress = models.CharField('他病院住所', max_length=64)
-    tabyouintel = models.CharField('他病院電話番号', max_length=13)
+    tabyouintel = models.CharField('他病院電話番号', max_length=14)
     tabyouinshihonkin = models.IntegerField('資本金')
     kyukyu = models.IntegerField('救急フラグ')
 
